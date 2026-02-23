@@ -2,14 +2,11 @@ import json
 from dataclasses import asdict
 from pathlib import Path
 
-from pydantic_ai.models.openai import OpenAIChatModel
-from pydantic_ai.providers.deepseek import DeepSeekProvider
-
-import envUtils
 from core import model_provider
 from core.data_fetch import fetch_news
 from core.llm_models import AINewsData, AINewsItem, AIOutputModel
 from pydantic_ai import Agent, ModelSettings
+from pydantic_ai.exceptions import ModelHTTPError
 
 from db.models import NewsData, NewsCategory, MergedNewsItem
 
@@ -38,25 +35,43 @@ def parse_news(news_data: NewsData):
     return json_str, id_to_news_item
 
 
-def news_distill(json: str) -> AIOutputModel:
-    print(f"大模型处理开始...   传入数据={json}")
-    model = model_provider.qwen_plus
+def news_distill(news_json: str) -> AIOutputModel:
+    print(f"当前新闻数据===>{news_json}")
     system_prompt = SYSTEM_PROMPT_PATH.read_text(encoding="utf-8")
-    agent = Agent(
-        model,
-        system_prompt=system_prompt,
-        output_type=AIOutputModel,
-        # model_settings=ModelSettings(
-        #     # 仅对千问生效
-        #     extra_body={
-        #         "enable_thinking": True,
-        #         "enable_search": False
-        #     }
-        # )
-    )
-    _result = agent.run_sync(user_prompt=json)
-    print(f"大模型处理完成   {_result.usage()}")
-    return _result.output
+    # 实测会遇到模型失败比如 deepseek 报错 Content Exists Risk ，gemini会限流
+    # 按列表顺序依次尝试，直到有一个成功或所有都失败
+    models = [
+        model_provider.deepseek_model,
+        model_provider.qwen_plus,
+    ]
+    for idx, model in enumerate(models):
+        model_name = getattr(model, "model_name", str(model))
+        print(f"大模型{model_name}处理开始...")
+        try:
+            agent = Agent(
+                model,
+                system_prompt=system_prompt,
+                output_type=AIOutputModel,
+            )
+            _result = agent.run_sync(user_prompt=news_json)
+            print(_result)
+            print(_result.output)
+            print(
+                f"大模型处理完成 [{model_name}] {_result.usage()}  "
+                f"返回结果==>{json.dumps(_result.output.model_dump(), ensure_ascii=False)}"
+            )
+            return _result.output
+        except ModelHTTPError as e:
+            # 打印模型 HTTP 错误日志，然后尝试下一个兜底模型
+            print(f"模型调用失败 [{model_name}] ModelHTTPError: {e}")
+            if idx == len(models) - 1:
+                # 最后一个模型也失败则继续抛出
+                raise
+        except Exception as e:
+            # 其他异常同样记录日志
+            print(f"模型调用失败 [{model_name}] Unexpected error: {e}")
+            if idx == len(models) - 1:
+                raise
 
 
 # 全量新闻处理
@@ -94,7 +109,6 @@ def full_news_task():
 
     news_json, id_to_news_item = parse_news(full_news)
     ai_result = news_distill(news_json)
-    print(json.dumps(ai_result.model_dump(), ensure_ascii=False))
 
     categories: list[NewsCategory] = []
     for ai_category in ai_result.items:
