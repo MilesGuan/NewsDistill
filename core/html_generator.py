@@ -44,7 +44,7 @@ def generate_html(categories: list[NewsCategory]) -> str:
         "word-break:break-all;display:flex;flex-wrap:wrap;"
         "align-items:center;column-gap:4px;row-gap:2px;}"
         ".news-text{flex:0 1 auto;}"
-        ".sources{display:flex;flex-wrap:wrap;gap:4px;}"
+        ".sources{display:flex;flex-wrap:wrap;gap:4px;margin-left:4px;}"
         ".source-tag{font-size:12px;padding:2px 7px;border-radius:999px;"
         "background:#e5f1ff;color:#1d4ed8;text-decoration:none;}"
         ".source-tag:active{opacity:0.75;}"
@@ -79,7 +79,7 @@ def generate_html(categories: list[NewsCategory]) -> str:
                 parts.append('<span class="sources">')
                 for n in merged.news:
                     platform_name = n.platform_name or n.platform_id or ""
-                    label = f"【{platform_name}】"
+                    label = f"{platform_name}"
                     label_escaped = escape(label)
 
                     # 优先使用移动端链接，缺省时退回到普通 URL
