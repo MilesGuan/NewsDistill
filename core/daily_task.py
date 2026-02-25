@@ -5,7 +5,7 @@ from pathlib import Path
 from core import model_provider
 from core.data_fetch import fetch_news
 from core.llm_models import AINewsData, AINewsItem, AIOutputModel
-from pydantic_ai import Agent, ModelSettings
+from pydantic_ai import Agent
 from pydantic_ai.exceptions import ModelHTTPError
 
 from db.models import NewsData, NewsCategory, MergedNewsItem
@@ -35,15 +35,18 @@ def parse_news(news_data: NewsData):
     return json_str, id_to_news_item
 
 
-def news_distill(news_json: str) -> AIOutputModel:
+def news_distill(news_json: str) -> tuple[AIOutputModel | None, str | None, list[str]]:
     print(f"当前新闻数据===>{news_json}")
     system_prompt = SYSTEM_PROMPT_PATH.read_text(encoding="utf-8")
     # 实测会遇到模型失败比如 deepseek 报错 Content Exists Risk ，gemini会限流
     # 按列表顺序依次尝试，直到有一个成功或所有都失败
     models = [
         model_provider.deepseek_model,
-        model_provider.qwen_plus,
+        # model_provider.qwen_plus,
     ]
+
+    error_messages: list[str] = []
+
     for idx, model in enumerate(models):
         model_name = getattr(model, "model_name", str(model))
         print(f"大模型{model_name}处理开始...")
@@ -60,18 +63,19 @@ def news_distill(news_json: str) -> AIOutputModel:
                 f"大模型处理完成 [{model_name}] {_result.usage()}  "
                 f"返回结果==>{json.dumps(_result.output.model_dump(), ensure_ascii=False)}"
             )
-            return _result.output
+            # 成功时额外返回实际工作的模型名称，并附带错误信息列表（此时通常为空）
+            return _result.output, model_name, error_messages
         except ModelHTTPError as e:
-            # 打印模型 HTTP 错误日志，然后尝试下一个兜底模型
-            print(f"模型调用失败 [{model_name}] ModelHTTPError: {e}")
-            if idx == len(models) - 1:
-                # 最后一个模型也失败则继续抛出
-                raise
+            msg = f"模型调用失败 [{model_name}] ModelHTTPError: {e}"
+            # 记录 HTTP 错误日志（不在此处打印），然后尝试下一个兜底模型
+            error_messages.append(msg)
         except Exception as e:
-            # 其他异常同样记录日志
-            print(f"模型调用失败 [{model_name}] Unexpected error: {e}")
-            if idx == len(models) - 1:
-                raise
+            msg = f"模型调用失败 [{model_name}] Unexpected error: {e}"
+            # 其他异常同样记录日志（不在此处打印）
+            error_messages.append(msg)
+
+    # 所有模型都失败时，将所有错误信息汇总返回，交给调用方处理（打印/告警等）
+    return None, None, error_messages
 
 
 # 全量新闻处理
@@ -108,8 +112,16 @@ def full_news_task():
         return []
 
     news_json, id_to_news_item = parse_news(full_news)
-    ai_result = news_distill(news_json)
+    ai_result, used_model_name, error_messages = news_distill(news_json)
 
+    # 由调用方统一打印实际使用模型和错误信息
+    if ai_result is None:
+        print("所有模型调用失败，错误汇总：")
+        for em in error_messages:
+            print(em)
+        return []
+
+    print(f"本次实际使用的大模型为: {used_model_name}")
     categories: list[NewsCategory] = []
     for ai_category in ai_result.items:
         merged_items: list[MergedNewsItem] = []
