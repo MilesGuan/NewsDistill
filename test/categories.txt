@@ -1,0 +1,809 @@
+[
+  {
+    "category": "重大突发事件",
+    "items": [
+      {
+        "title": "俄罗斯警告：核大国可能发生直接冲突（俄发出“核大国直接冲突”预警）",
+        "news": [
+          {
+            "title": "俄罗斯警告：核大国可能发生直接冲突",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 16,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/3db2557b32d147298c3d8b3f1b9aab0a.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          },
+          {
+            "title": "俄发出“核大国直接冲突”预警",
+            "platform_id": "toutiao",
+            "platform_name": "今日头条",
+            "rank": 9,
+            "url": "https://www.toutiao.com/trending/7609983092031438854/",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "普京：有人准备炸毁黑海海底天然气管道",
+        "news": [
+          {
+            "title": "普京：有人准备炸毁黑海海底天然气管道",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 12,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/8d8c7e61a18b4654a647f10567b02090.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "外媒：乌无人机袭击迫使俄削减管道输油量",
+        "news": [
+          {
+            "title": "外媒：乌无人机袭击迫使俄削减管道输油量",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 14,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/5d5b22b3300d4258a2ed8b12947f19dd.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "外媒：伊朗革命卫队在波斯湾沿岸举行军事演习",
+        "news": [
+          {
+            "title": "外媒：伊朗革命卫队在波斯湾沿岸举行军事演习",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 11,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/a593363645f54e969c72c7ce55fb4485.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "美国在伊朗附近集结军舰与战斗机",
+        "news": [
+          {
+            "title": "美国在伊朗附近集结军舰与战斗机，BBC事实查核透过卫星影像追踪",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 23,
+            "url": "https://www.zaochenbao.com/news/politics/202602/2565402.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "暴雪肆虐美国，7个州进入紧急状态，纽约成“孤城”",
+        "news": [
+          {
+            "title": "第1现场｜暴雪肆虐美国，7个州进入紧急状态，纽约成“孤城”",
+            "platform_id": "thepaper",
+            "platform_name": "澎湃新闻",
+            "rank": 9,
+            "url": "https://www.thepaper.cn/newsDetail_forward_32649718",
+            "mobile_url": "https://m.thepaper.cn/newsDetail_forward_32649718",
+            "crawl_time": "17:52"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "财经",
+    "items": [
+      {
+        "title": "上海发布楼市“沪七条”（多地晒返乡置业成绩单：新房市场“淡季不淡”，楼市迎来“开门红”）",
+        "news": [
+          {
+            "title": "上海发布楼市“沪七条”",
+            "platform_id": "toutiao",
+            "platform_name": "今日头条",
+            "rank": 22,
+            "url": "https://www.toutiao.com/trending/7609574284113346596/",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          },
+          {
+            "title": "上海发布楼市“沪七条”",
+            "platform_id": "thepaper",
+            "platform_name": "澎湃新闻",
+            "rank": 6,
+            "url": "https://www.thepaper.cn/newsDetail_forward_32652876",
+            "mobile_url": "https://m.thepaper.cn/newsDetail_forward_32652876",
+            "crawl_time": "17:52"
+          },
+          {
+            "title": "多地晒返乡置业成绩单：新房市场 “淡季不淡”，楼市迎来“开门红”",
+            "platform_id": "thepaper",
+            "platform_name": "澎湃新闻",
+            "rank": 10,
+            "url": "https://www.thepaper.cn/newsDetail_forward_32650376",
+            "mobile_url": "https://m.thepaper.cn/newsDetail_forward_32650376",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "陈茂波：要求港交所检视相关规定 吸引航天企业上市",
+        "news": [
+          {
+            "title": "陈茂波：要求港交所检视相关规定 吸引航天企业上市",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 7,
+            "url": "https://www.zaochenbao.com/news/hkMacao/202602/2565425.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "印尼推介离岸人民币债券 试探全球投资者需求",
+        "news": [
+          {
+            "title": "印尼推介离岸人民币债券 试探全球投资者需求",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 9,
+            "url": "https://www.zaochenbao.com/news/china/202602/2565423.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "中国油价“三连涨” 机构称或继续上调",
+        "news": [
+          {
+            "title": "中国油价“三连涨” 机构称或继续上调",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 19,
+            "url": "https://www.zaochenbao.com/news/china/202602/2565413.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "台股创新高 台积电股价破2000新台币",
+        "news": [
+          {
+            "title": "台股创新高 台积电股价破2000新台币",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 30,
+            "url": "https://www.zaochenbao.com/news/taiwan/202602/2565390.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "俄总理：俄罗斯经济在复杂局势下仍保持积极势头",
+        "news": [
+          {
+            "title": "俄总理：俄罗斯经济在复杂局势下仍保持积极势头",
+            "platform_id": "sputniknewscn",
+            "platform_name": "卫星通讯社",
+            "rank": 3,
+            "url": "https://sputniknews.cn/20260225/1069918316.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "特朗普：美国通胀降至五年新低",
+        "news": [
+          {
+            "title": "特朗普：美国通胀降至五年新低",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 14,
+            "url": "https://www.zaochenbao.com/news/politics/202602/2565418.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "AI / 机器人",
+    "items": [
+      {
+        "title": "美媒：受人工智能编码工具冲击，美多家软件企业股价暴跌",
+        "news": [
+          {
+            "title": "美媒：受人工智能编码工具冲击，美多家软件企业股价暴跌",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 1,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/5a4b745faec74ab6bae980ca64452dc5.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "马年春节世界说②：春晚机器人让外国网民“破防”：感叹“西方仍处于中世纪”",
+        "news": [
+          {
+            "title": "马年春节世界说②：春晚机器人让外国网民“破防”：感叹“西方仍处于中世纪”",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 17,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/c7baf39bd13346e8961cb518c8bc9ef7.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "宇树马年开工首日上新！新一代机器狗As2发布",
+        "news": [
+          {
+            "title": "宇树马年开工首日上新！新一代机器狗As2发布",
+            "platform_id": "thepaper",
+            "platform_name": "澎湃新闻",
+            "rank": 14,
+            "url": "https://www.thepaper.cn/newsDetail_forward_32649604",
+            "mobile_url": "https://m.thepaper.cn/newsDetail_forward_32649604",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "香港新预算案提多个AI项目 升格雇员再培训局为“技能提升局”",
+        "news": [
+          {
+            "title": "香港新预算案提多个AI项目 升格雇员再培训局为“技能提升局”",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 21,
+            "url": "https://www.zaochenbao.com/news/hkMacao/202602/2565407.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "部分审稿意见高度疑似由AI生成，期刊发声：审稿专家应珍惜学术信任",
+        "news": [
+          {
+            "title": "部分审稿意见高度疑似由AI生成，期刊发声：审稿专家应珍惜学术信任",
+            "platform_id": "thepaper",
+            "platform_name": "澎湃新闻",
+            "rank": 8,
+            "url": "https://www.thepaper.cn/newsDetail_forward_32650169",
+            "mobile_url": "https://m.thepaper.cn/newsDetail_forward_32650169",
+            "crawl_time": "17:52"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "国际政治",
+    "items": [
+      {
+        "title": "特朗普新关税政策影响几何？美对三国太阳能产品设定高额关税 印度税率达126%",
+        "news": [
+          {
+            "title": "特朗普新关税政策影响几何？",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 2,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/dbb4c8ddf7954272b9c79fd82e1f8283.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          },
+          {
+            "title": "美对三国太阳能产品设定高额关税 印度税率达126%",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 11,
+            "url": "https://www.zaochenbao.com/news/politics/202602/2565421.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "默茨访华前发声：全球重大问题没有中国参与就无法解决（默茨抵京小跑两步出客舱/默茨访华阵容与默克尔相仿/默茨：德希望深化对华经济交流 确保公平合作/默茨任内首次访华：重新校准对华政策）",
+        "news": [
+          {
+            "title": "默茨访华前发声：全球重大问题没有中国参与就无法解决",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 23,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/ac2d04a8dc2e4425a98242e30c04b69f.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          },
+          {
+            "title": "默茨抵京小跑两步出客舱",
+            "platform_id": "toutiao",
+            "platform_name": "今日头条",
+            "rank": 4,
+            "url": "https://www.toutiao.com/trending/7609613745346314276/",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          },
+          {
+            "title": "默茨访华阵容与默克尔相仿",
+            "platform_id": "toutiao",
+            "platform_name": "今日头条",
+            "rank": 7,
+            "url": "https://www.toutiao.com/trending/7610672358629772838/",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          },
+          {
+            "title": "默茨：德希望深化对华经济交流 确保公平合作",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 20,
+            "url": "https://www.zaochenbao.com/news/china/202602/2565412.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          },
+          {
+            "title": "默茨任内首次访华：重新校准对华政策",
+            "platform_id": "sputniknewscn",
+            "platform_name": "卫星通讯社",
+            "rank": 7,
+            "url": "https://sputniknews.cn/20260225/1069917390.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "外媒：WTO决定成立专家组解决中印能源和汽车领域争端",
+        "news": [
+          {
+            "title": "外媒：WTO决定成立专家组解决中印能源和汽车领域争端",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 18,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/af47a96b26834f0ead407b8a46f020bb.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "自民党高层批评中国对日出口管制是不合理施压",
+        "news": [
+          {
+            "title": "自民党高层批评中国对日出口管制是不合理施压",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 6,
+            "url": "https://www.zaochenbao.com/news/china/202602/2565426.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "英国政府扩大对俄制裁名单中包含中国实体，中国外交部：强烈不满",
+        "news": [
+          {
+            "title": "英国政府扩大对俄制裁名单中包含中国实体，中国外交部：强烈不满",
+            "platform_id": "sputniknewscn",
+            "platform_name": "卫星通讯社",
+            "rank": 13,
+            "url": "https://sputniknews.cn/20260225/1069916681.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "高市早苗：日本重视与中国的沟通并愿与中国展开对话",
+        "news": [
+          {
+            "title": "高市早苗：日本重视与中国的沟通并愿与中国展开对话",
+            "platform_id": "sputniknewscn",
+            "platform_name": "卫星通讯社",
+            "rank": 18,
+            "url": "https://sputniknews.cn/20260225/1069914560.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "特朗普威胁已有贸易协定国家别“玩花样”",
+        "news": [
+          {
+            "title": "特朗普威胁已有贸易协定国家别“玩花样”",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 24,
+            "url": "https://www.zaochenbao.com/news/politics/202602/2565399.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "特朗普：美副总统万斯领导“打击舞弊战”",
+        "news": [
+          {
+            "title": "特朗普：美副总统万斯领导“打击舞弊战”",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 13,
+            "url": "https://www.zaochenbao.com/news/politics/202602/2565419.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "特朗普：美国在我的领导下实现史无前例逆转",
+        "news": [
+          {
+            "title": "特朗普：美国在我的领导下实现史无前例逆转",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 25,
+            "url": "https://www.zaochenbao.com/news/politics/202602/2565398.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "国内政治",
+    "items": [
+      {
+        "title": "中央纪委国家监委：53家中管企业派驻纪检监察组均已全面履职",
+        "news": [
+          {
+            "title": "中央纪委国家监委：53家中管企业派驻纪检监察组均已全面履职",
+            "platform_id": "thepaper",
+            "platform_name": "澎湃新闻",
+            "rank": 1,
+            "url": "https://www.thepaper.cn/newsDetail_forward_32650295",
+            "mobile_url": "https://m.thepaper.cn/newsDetail_forward_32650295",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "中方在涉乌联大表决中投弃权票",
+        "news": [
+          {
+            "title": "中方在涉乌联大表决中投弃权票",
+            "platform_id": "toutiao",
+            "platform_name": "今日头条",
+            "rank": 2,
+            "url": "https://www.toutiao.com/trending/7610584773052776511/",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "中方：坚决抵制日本新型军国主义妄动",
+        "news": [
+          {
+            "title": "中方：坚决抵制日本新型军国主义妄动",
+            "platform_id": "toutiao",
+            "platform_name": "今日头条",
+            "rank": 8,
+            "url": "https://www.toutiao.com/trending/7610402453200584714/",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "中国外交部：敦促美方停止为重启核试验找借口",
+        "news": [
+          {
+            "title": "中国外交部：敦促美方停止为重启核试验找借口",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 3,
+            "url": "https://www.zaochenbao.com/news/china/202602/2565429.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "外交部：核武器用不得核战争打不得",
+        "news": [
+          {
+            "title": "外交部：核武器用不得核战争打不得",
+            "platform_id": "toutiao",
+            "platform_name": "今日头条",
+            "rank": 1,
+            "url": "https://www.toutiao.com/trending/7609749816309989395/",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "中方驳斥美方：在乌问题上坦坦荡荡",
+        "news": [
+          {
+            "title": "中方驳斥美方：在乌问题上坦坦荡荡",
+            "platform_id": "toutiao",
+            "platform_name": "今日头条",
+            "rank": 10,
+            "url": "https://www.toutiao.com/trending/7610095790215757887/",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "南充市委书记张冬云任四川副省长",
+        "news": [
+          {
+            "title": "南充市委书记张冬云任四川副省长",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 2,
+            "url": "https://www.zaochenbao.com/news/Chronicles/202602/2565430.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "科技",
+    "items": [
+      {
+        "title": "大疆以司法行动反击美无人机禁令（大疆起诉美国联邦通信委员会）",
+        "news": [
+          {
+            "title": "外媒：大疆以司法行动反击美无人机禁令",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 19,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/224799f4172d4f598e6993f966f9ef58.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          },
+          {
+            "title": "大疆起诉美国联邦通信委员会",
+            "platform_id": "toutiao",
+            "platform_name": "今日头条",
+            "rank": 23,
+            "url": "https://www.toutiao.com/trending/7609967554191933449/",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "美国游戏引擎公司Unity据报考虑出售中国业务",
+        "news": [
+          {
+            "title": "美国游戏引擎公司Unity据报考虑出售中国业务",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 22,
+            "url": "https://www.zaochenbao.com/news/politics/202602/2565404.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "俄罗斯计划研制治疗胰腺癌的疫苗",
+        "news": [
+          {
+            "title": "俄罗斯计划研制治疗胰腺癌的疫苗",
+            "platform_id": "sputniknewscn",
+            "platform_name": "卫星通讯社",
+            "rank": 10,
+            "url": "https://sputniknews.cn/20260225/1069917052.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "中国科学家成功培育“爆米花味”番茄",
+        "news": [
+          {
+            "title": "中国科学家成功培育“爆米花味”番茄",
+            "platform_id": "sputniknewscn",
+            "platform_name": "卫星通讯社",
+            "rank": 15,
+            "url": "https://sputniknews.cn/20260225/1069916404.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "产业",
+    "items": [
+      {
+        "title": "临近两会 部分中国钢企被要求减产",
+        "news": [
+          {
+            "title": "临近两会 部分中国钢企被要求减产",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 10,
+            "url": "https://www.zaochenbao.com/news/china/202602/2565422.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "俄农产品出口发展中心：2025年俄罗斯起泡酒对华出口额增长超14倍",
+        "news": [
+          {
+            "title": "俄农产品出口发展中心： 2025年俄罗斯起泡酒对华出口额增长超14倍",
+            "platform_id": "sputniknewscn",
+            "platform_name": "卫星通讯社",
+            "rank": 1,
+            "url": "https://sputniknews.cn/20260225/1069918403.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "四川政府文件提出发展“短剧+电商”新模式",
+        "news": [
+          {
+            "title": "四川政府文件提出发展“短剧+电商”新模式",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 8,
+            "url": "https://www.zaochenbao.com/news/china/202602/2565424.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "百亿车企前董事长病逝汉马科技董事周建群病逝",
+        "news": [
+          {
+            "title": "百亿车企前董事长病逝汉马科技董事周建群病逝",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 27,
+            "url": "https://www.zaochenbao.com/news/Chronicles/202602/2565396.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      }
+    ]
+  },
+  {
+    "category": "其他",
+    "items": [
+      {
+        "title": "法媒：“欧洲制造”计划引发强烈争议",
+        "news": [
+          {
+            "title": "法媒：“欧洲制造”计划引发强烈争议",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 3,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/25076801bbac40499191ba4bd5893201.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "德媒文章：欧洲能否在关键领域减少对美依赖？",
+        "news": [
+          {
+            "title": "德媒文章：欧洲能否在关键领域减少对美依赖？",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 6,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/73b13f1ea5074347b35577321b1f6047.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "欧盟正在寻找办法绕过匈牙利对援乌900亿欧元贷款的否决权",
+        "news": [
+          {
+            "title": "媒体：欧盟正在寻找办法绕过匈牙利对援乌900亿欧元贷款的否决权",
+            "platform_id": "sputniknewscn",
+            "platform_name": "卫星通讯社",
+            "rank": 2,
+            "url": "https://sputniknews.cn/20260225/1069918210.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "广州将在10月开启赛马赛事 媒体称隔30年重启",
+        "news": [
+          {
+            "title": "广州将在10月开启赛马赛事 媒体称隔30年重启",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 5,
+            "url": "https://www.zaochenbao.com/news/china/202602/2565427.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "刘强东宣布50亿元创立游艇品牌：为个人投资，希望未来行业内有10万元游艇出现",
+        "news": [
+          {
+            "title": "刘强东宣布50亿元创立游艇品牌：为个人投资，希望未来行业内有10万元游艇出现",
+            "platform_id": "thepaper",
+            "platform_name": "澎湃新闻",
+            "rank": 7,
+            "url": "https://www.thepaper.cn/newsDetail_forward_32650366",
+            "mobile_url": "https://m.thepaper.cn/newsDetail_forward_32650366",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "纽时评论：我刚从中国回来，美国没有赢",
+        "news": [
+          {
+            "title": "纽时评论：我刚从中国回来，美国没有赢",
+            "platform_id": "zaobao",
+            "platform_name": "联合早报",
+            "rank": 28,
+            "url": "https://www.zaochenbao.com/news/opinion/202602/2565394.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      },
+      {
+        "title": "港媒：“下一波‘中国冲击’很重要，因为它不仅仅是个经济故事”",
+        "news": [
+          {
+            "title": "港媒：“下一波‘中国冲击’很重要，因为它不仅仅是个经济故事”",
+            "platform_id": "cankaoxiaoxi",
+            "platform_name": "参考消息",
+            "rank": 28,
+            "url": "https://ckxxapp.ckxx.net/pages/2026/02/25/d519740c74bd437386df7a271f14b51f.html",
+            "mobile_url": "",
+            "crawl_time": "17:52"
+          }
+        ]
+      }
+    ]
+  }
+]
