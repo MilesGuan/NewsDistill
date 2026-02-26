@@ -2,9 +2,12 @@ from core.data_fetch import fetch_news
 from core.news_processor import parse_news, llm_distill, merge_categories
 from core.yaml_utils import get_sources_platform_ids
 from notifier import feishu_notifier
+from datetime import datetime
 
 
 def news_task(only_increment: bool = True):
+    now = datetime.now()
+    print(f"news_task开始，当前时间 {now.strftime("%Y-%m-%d %H:%M:%S")}")
     platform_ids = get_sources_platform_ids()
     todo_news = fetch_news(platform_ids, only_increment=only_increment)
     if not todo_news:
