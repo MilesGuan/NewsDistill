@@ -112,38 +112,8 @@ def generate_html(categories: list[NewsCategory]) -> str:
 
     return "".join(parts)
 
-
-if __name__ == "__main__":
-    # 从 test/categories.txt 反序列化为 NewsCategory 列表，
-    # 调用 generate_html(categories) 并写入文件，路径为 output/html/[当前日期].html。
+def save_html(html_content):
     project_root = Path(__file__).resolve().parent.parent
-    categories_file = project_root / "test" / "categories.txt"
-
-    raw = categories_file.read_text(encoding="utf-8")
-    data = json.loads(raw)
-
-    categories: list[NewsCategory] = []
-    for cat in data:
-        items: list[MergedNewsItem] = []
-        for item in cat.get("items", []):
-            news_list = [
-                NewsItem.from_dict(n) for n in item.get("news", [])
-            ]
-            items.append(
-                MergedNewsItem(
-                    title=item.get("title", ""),
-                    news=news_list,
-                )
-            )
-        categories.append(
-            NewsCategory(
-                category=cat.get("category", ""),
-                items=items,
-            )
-        )
-
-    html_content = generate_html(categories)
-
     html_dir = project_root / "output" / "html"
     html_dir.mkdir(parents=True, exist_ok=True)
     today_str = date.today().strftime("%Y-%m-%d")

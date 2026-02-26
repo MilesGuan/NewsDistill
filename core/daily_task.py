@@ -42,7 +42,7 @@ def news_distill(news_json: str) -> tuple[AIOutputModel | None, str | None, list
     # 按列表顺序依次尝试，直到有一个成功或所有都失败
     models = [
         model_provider.deepseek_model,
-        # model_provider.qwen_plus,
+        model_provider.qwen_plus,
     ]
 
     error_messages: list[str] = []
