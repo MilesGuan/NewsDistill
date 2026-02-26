@@ -6,7 +6,7 @@
 """
 
 from datetime import datetime
-from typing import List, Optional, Tuple, Dict, Any
+from typing import List, Optional, Dict, Any
 from pathlib import Path
 
 from crawler.crawler import NewsRadarCrawler
@@ -20,19 +20,24 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 # 1 抓取指定平台新闻(参数传入)，记录完整数据。
 # 2 写入或者更新到数据库，数据库名为当天日期 如2026-02-11.db。记录数据库中不存在的增量数据
-# 3 返回完整数据和增量数据
-def fetch_news(platform_ids: List[str], db_dir: Optional[str] = None) -> Tuple[Optional[NewsData], Optional[NewsData]]:
+# 3 根据 only_increment 决定返回完整数据 or 增量数据
+def fetch_news(
+    platform_ids: List[str],
+    db_dir: Optional[str] = None,
+    only_increment: bool = False,
+) -> Optional[NewsData]:
     """
-    抓取指定平台的新闻数据，保存到数据库，并返回完整数据和增量数据
-    
+    抓取指定平台的新闻数据，保存到数据库，并返回一份 NewsData。
+
     Args:
         platform_ids: 平台ID列表，如 ["zhihu", "toutiao"]
         db_dir: 数据库文件存储目录，默认为项目根目录下的 output/db
-    
+        only_increment: 为 True 时返回增量数据；否则返回本次抓取的完整数据。
+
     Returns:
-        (full_news, increment_news) 元组
-        - full_news: 本次抓取的所有新闻数据
-        - increment_news: 数据库中不存在的增量数据（仅新增的新闻）
+        NewsData 或 None
+        - only_increment=False: 返回 full_news（本次抓取的所有新闻数据）
+        - only_increment=True: 返回 increment_news（数据库中不存在的增量数据）
     """
     # 获取当前日期，用于数据库文件名
     today = datetime.now().strftime("%Y-%m-%d")
@@ -135,13 +140,17 @@ def fetch_news(platform_ids: List[str], db_dir: Optional[str] = None) -> Tuple[O
             increment_items[platform_id] = increment_list
     
     # 创建增量新闻数据对象
-    increment_news = NewsData(
-        date=today,
-        crawl_time=now_time,
-        items=increment_items,
-        id_to_name=id_to_name,
-        failed_ids=failed_ids
-    ) if increment_items else None
+    increment_news = (
+        NewsData(
+            date=today,
+            crawl_time=now_time,
+            items=increment_items,
+            id_to_name=id_to_name,
+            failed_ids=failed_ids,
+        )
+        if increment_items
+        else None
+    )
     
     # 保存完整数据到数据库
     success, new_count, updated_count = db.save_news_data(full_news)
@@ -152,7 +161,10 @@ def fetch_news(platform_ids: List[str], db_dir: Optional[str] = None) -> Tuple[O
     else:
         print(f"\n数据库保存失败")
     
-    return full_news, increment_news
+    # only_increment=True 时，仅返回增量数据；否则返回完整数据
+    if only_increment:
+        return increment_news
+    return full_news
 
 
 def main():
@@ -164,8 +176,8 @@ def main():
     # 使用知乎和今日头条进行测试
     platform_ids = ["zhihu", "toutiao"]
     
-    # 执行抓取
-    full_news, increment_news = fetch_news(platform_ids)
+    # 执行抓取（返回完整数据）
+    full_news = fetch_news(platform_ids)
     
     # 打印结果
     print("\n" + "=" * 60)
@@ -189,6 +201,9 @@ def main():
             if len(news_list) > 5:
                 print(f"    ... 还有 {len(news_list) - 5} 条")
     
+    # 如需查看增量数据，可单独再调用一次（示例用途）
+    increment_news = fetch_news(platform_ids, only_increment=True)
+
     if increment_news:
         print(f"\n【增量数据】")
         total_increment = sum(len(news_list) for news_list in increment_news.items.values())
