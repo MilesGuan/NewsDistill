@@ -26,8 +26,6 @@ sources:
       name: "财联社-深度"
     - id: "gelonghui"
       name: "格隆汇"
-    - id: "fastbull"
-      name: "快讯通"
     - id: "fastbull-news"
       name: "法布财经"
 

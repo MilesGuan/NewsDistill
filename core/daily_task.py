@@ -4,8 +4,7 @@ from core.yaml_utils import get_sources_platform_ids
 from notifier import feishu_notifier
 
 
-# 全量新闻处理
-def full_news_task(only_increment: bool = True):
+def news_task(only_increment: bool = True):
     platform_ids = get_sources_platform_ids()
     todo_news = fetch_news(platform_ids, only_increment=only_increment)
     if not todo_news:
@@ -28,4 +27,4 @@ def full_news_task(only_increment: bool = True):
 
 
 if __name__ == '__main__':
-    full_news_task()
+    news_task()
