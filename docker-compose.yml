@@ -1,0 +1,14 @@
+version: "3.9"
+
+services:
+  newsdistill:
+    build: .
+    image: newsdistill:latest
+    env_file:
+      - .env
+    environment:
+      - TZ=Asia/Shanghai
+    volumes:
+      - ./output:/app/output
+    restart: unless-stopped
+
