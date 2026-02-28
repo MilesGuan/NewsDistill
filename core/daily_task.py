@@ -15,17 +15,16 @@ def news_task(only_increment: bool = True):
         return
 
     news_json, id_to_news_item = parse_news(todo_news)
-    ai_result, used_model_name, error_messages = llm_distill(news_json)
+    ai_result, error_output = llm_distill(news_json)
 
-    # 由调用方统一打印实际使用模型和错误信息
     if ai_result is None:
         print("所有模型调用失败，错误汇总：")
-        for em in error_messages:
+        for em in (error_output.error_msgs if error_output else []):
             print(em)
+        return
 
-    print(f"本次实际使用的大模型为: {used_model_name}")
-    categories = merge_categories(ai_result, id_to_news_item)
-    feishu_notifier.send_news_results_to_feishu(categories)
+    title, categories = merge_categories(ai_result, id_to_news_item)
+    feishu_notifier.send_news_results_to_feishu(title, categories)
     print("本次task执行完成")
 
 

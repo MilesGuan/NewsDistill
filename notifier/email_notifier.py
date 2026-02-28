@@ -123,7 +123,7 @@ def send_email(
 
 
 # 给我自己发邮件
-def send_to_myself(subject: str, from_name: str, html_content: str):
+def send_to_myself(subject: str, from_name: str, html_content: str) -> bool:
     return send_email(
         to_email='475643653@qq.com',
         subject=subject,

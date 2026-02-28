@@ -112,7 +112,7 @@ def generate_html(categories: list[NewsCategory]) -> str:
 
     return "".join(parts)
 
-def save_html(html_content):
+def save_html(html_content: str):
     project_root = Path(__file__).resolve().parent.parent
     html_dir = project_root / "output" / "html"
     html_dir.mkdir(parents=True, exist_ok=True)

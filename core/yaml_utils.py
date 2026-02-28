@@ -12,7 +12,7 @@ def load_yaml(path: Path) -> Any:
         return yaml.safe_load(f) or {}
 
 
-def load_config() -> dict:
+def load_config() -> dict[str, Any]:
     data = load_yaml(CONFIG_PATH)
     if not isinstance(data, dict):
         return {}
@@ -25,5 +25,5 @@ def get_sources_platform_ids() -> list[str]:
     """
     config = load_config()
     sources = config.get("sources", []) or []
-    return [item.get("id") for item in sources if isinstance(item, dict) and item.get("id")]
+    return [str(item.get("id")) for item in sources if isinstance(item, dict) and item.get("id")]
 

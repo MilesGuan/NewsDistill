@@ -1,16 +1,11 @@
 import json
-from datetime import date
-from pathlib import Path
-from html import escape
-import json
-from datetime import date
 from pathlib import Path
 
 from db.models import NewsCategory, MergedNewsItem, NewsItem
 from notifier import feishu_notifier, html_generator, email_notifier
 
 
-def create_test_data():
+def create_test_data() -> list[NewsCategory]:
     project_root = Path(__file__).resolve().parent.parent
     categories_file = project_root / "test" / "categories.txt"
 
@@ -53,7 +48,9 @@ def test_html():
         print("测试邮件发送失败！")
 
 
+def test_feishu_text():
+    feishu_notifier.send_feishu_text("一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十一二三四五六七八九十","hahahhaa")
 
-def test_feishu():
+def test_feishu_categories():
     categories = create_test_data()
     feishu_notifier.send_news_results_to_feishu(categories)

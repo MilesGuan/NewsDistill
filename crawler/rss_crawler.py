@@ -18,7 +18,7 @@ import json
 import time
 from dataclasses import dataclass, asdict
 from datetime import datetime, timedelta
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 import feedparser
 import requests
@@ -113,7 +113,7 @@ class RSSCrawler:
             }
 
     @staticmethod
-    def _normalize_datetime(entry) -> Optional[datetime]:
+    def _normalize_datetime(entry: Any) -> Optional[datetime]:
         """从 feedparser 条目中提取发布时间"""
         dt = None
         for attr in ("published_parsed", "updated_parsed", "created_parsed"):
@@ -293,7 +293,7 @@ class RSSCrawler:
         ]
 
     @staticmethod
-    def print_results(results: Dict, limit: int = 5) -> None:
+    def print_results(results: Dict, limit: int = 5):
         """在终端友好地打印部分结果"""
         for feed_id, data in results.get("feeds", {}).items():
             name = data["feed_name"]
@@ -316,7 +316,7 @@ class RSSCrawler:
                 print(f"  ... 还有 {len(articles) - limit} 篇")
 
 
-def main() -> None:
+def main():
     """命令行入口"""
     parser = argparse.ArgumentParser(
         description="NewsRadar - RSS 抓取工具（独立版）",

@@ -23,6 +23,11 @@ class AIOutputNewsItem(BaseModel):
         description="被聚合的新闻id"
     )
 
+class AIFilterOutput(BaseModel):
+    items: List[AIOutputNewsItem] = Field(
+        description="筛选聚合后的结果列表"
+    )
+
 class AIOutputCategory(BaseModel):
     category: str = Field(
         description="新闻分类名称"
@@ -31,6 +36,14 @@ class AIOutputCategory(BaseModel):
 
 
 class AIOutputModel(BaseModel):
+    digest: str = Field(
+        description="对最核心的一到两个新闻做个摘要，不超过25字"
+    )
     items: List[AIOutputCategory] = Field(
         description="按分类聚合后的新闻结果"
     )
+
+
+@dataclass
+class AIErrorOutput:
+    error_msgs: List[str]

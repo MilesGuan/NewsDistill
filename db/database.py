@@ -8,7 +8,7 @@
 import sqlite3
 from datetime import datetime
 from pathlib import Path
-from typing import Dict, List, Optional, Tuple
+from typing import Any, Dict, List, Optional, Tuple
 
 from .models import NewsItem, NewsData
 from .utils import normalize_url
@@ -72,7 +72,7 @@ class NewsDatabase:
         conn.row_factory = sqlite3.Row  # 使用 Row 工厂，方便访问列
         return conn
 
-    def _init_database(self) -> None:
+    def _init_database(self):
         """初始化数据库表结构"""
         conn = self._get_connection()
         try:
@@ -378,7 +378,7 @@ class NewsDatabase:
         finally:
             conn.close()
 
-    def get_statistics(self) -> Dict:
+    def get_statistics(self) -> Dict[str, Any]:
         """
         获取数据库统计信息
 
