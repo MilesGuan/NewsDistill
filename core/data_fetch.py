@@ -19,7 +19,7 @@ PROJECT_ROOT = Path(__file__).resolve().parent.parent
 
 
 # 1 抓取指定平台新闻(参数传入)，记录完整数据。
-# 2 写入或者更新到数据库，数据库名为当天日期 如2026-02-11.db。记录数据库中不存在的增量数据
+# 2 写入或者更新到数据库，数据库名为当月 如2025-2.db。记录数据库中不存在的增量数据
 # 3 根据 only_increment 决定返回完整数据 or 增量数据
 def fetch_news(
     platform_ids: List[str],
@@ -39,15 +39,17 @@ def fetch_news(
         - only_increment=False: 返回 full_news（本次抓取的所有新闻数据）
         - only_increment=True: 返回 increment_news（数据库中不存在的增量数据）
     """
-    # 获取当前日期，用于数据库文件名
-    today = datetime.now().strftime("%Y-%m-%d")
-    now_time = datetime.now().strftime("%H:%M")
+    # 获取当前日期（用于 NewsData）和月份（用于数据库文件名）
+    now = datetime.now()
+    today = now.strftime("%Y-%m-%d")
+    db_month = f"{now.year}-{now.month}"  # 月维度，如 2025-2.db
+    now_time = now.strftime("%H:%M")
     
     # 数据库路径：默认为项目根目录下的 output/db
     if db_dir is None:
         db_dir = str(PROJECT_ROOT / "output" / "db")
     db_dir_path = Path(db_dir)
-    db_path = db_dir_path / f"{today}.db"
+    db_path = db_dir_path / f"{db_month}.db"
 
     # 确保目录存在且为目录（若 output/db 误建为文件则删除）
     if db_dir_path.exists() and db_dir_path.is_file():

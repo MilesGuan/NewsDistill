@@ -87,11 +87,12 @@ def _llm_run_with_retry(
 # 让大模型对数据进行聚合/筛选
 def llm_distill(news_json: str) -> tuple[AIOutputModel | None, AIErrorOutput | None]:
     print(f"当前新闻数据===>{news_json}")
+    print("1 筛选聚合")
     filter_prompt = get_prompt("筛选聚合prompt.md")
     filter_result, filter_error = _llm_run_with_retry(news_json, filter_prompt, AIFilterOutput)
     if filter_error is not None:
         return None, filter_error
-
+    print("2 分类总结")
     prompt = get_prompt("分类prompt.md")
     return _llm_run_with_retry(filter_result.model_dump_json(), prompt, AIOutputModel)
 
