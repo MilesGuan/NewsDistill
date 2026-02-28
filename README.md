@@ -1,6 +1,6 @@
 # NewsDistill Docker 部署说明
 
-本项目通过定时抓取新闻、调用大模型进行聚合，并把结果发送到飞书/邮件等渠道。本文档说明如何使用 Docker 部署，并在每天早上 8 点到晚上 10 点之间，每隔一小时自动执行一次 `news_task`。
+本项目通过定时抓取新闻、调用大模型进行聚合，并把结果发送到飞书/邮件等渠道。本文档说明如何使用 Docker 部署，并在每天早上 8 点到 11 点之间，每隔 1.5 小时自动执行一次 `news_task`。
 
 ## 1. 前置条件
 
@@ -65,17 +65,18 @@ docker build -t newsdistill:latest .
 - 拷贝项目代码到镜像中
 - 安装 `cron` 并写入定时任务
 
-## 5. 定时任务说明（8:00–22:00 每小时）
+## 5. 定时任务说明（8:00–11:00 每 1.5 小时）
 
-镜像内已经配置好 `cron`，crontab 内容位于 `/etc/cron.d/news_cron`：
+镜像内已经配置好 `cron`，crontab 内容位于 `/etc/cron.d/news_cron`（8:00–11:00 每 1.5 小时执行一次）：
 
 ```cron
-0 8-22 * * * cd /app && /usr/local/bin/python -m core.daily_task >> /var/log/cron.log 2>&1
+0 8,11 * * * cd /app && /usr/local/bin/python -m core.daily_task >> /var/log/cron.log 2>&1
+30 9 * * * cd /app && /usr/local/bin/python -m core.daily_task >> /var/log/cron.log 2>&1
 ```
 
-这条规则的含义是：
+这组规则的含义是：
 
-- 每天从 **08:00 到 22:00（含）**，每整点执行一次
+- 每天从 **08:00 到 11:00（含）**，约每 1.5 小时执行一次（08:00, 09:30, 11:00）
 - 在 `/app` 目录下运行 `python -m core.daily_task`
   - 实际会执行 `core/daily_task.py` 中的 `news_task()`（默认只处理增量）
 - 输出日志追加到 `/var/log/cron.log`
