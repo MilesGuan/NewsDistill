@@ -7,7 +7,8 @@ from datetime import datetime
 
 def news_task(only_increment: bool = True):
     now = datetime.now()
-    print(f"news_task开始，当前时间 {now.strftime("%Y-%m-%d %H:%M:%S")}")
+    print("="*30)
+    print(f"news_task开始，当前时间 {now.strftime('%Y-%m-%d %H:%M:%S')}")
     platform_ids = get_sources_platform_ids()
     todo_news = fetch_news(platform_ids, only_increment=only_increment)
     if not todo_news:
