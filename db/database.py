@@ -10,7 +10,7 @@ from datetime import datetime
 from pathlib import Path
 from typing import Any, Dict, List, Optional, Tuple
 
-from .models import NewsItem, NewsData
+from .models import NewsItem, NewsData, NewsSummary
 from .utils import normalize_url
 
 
@@ -45,6 +45,22 @@ class NewsDatabase:
         ON news_items(url, platform_id) WHERE url != '';
     """
 
+    # news_summary 表的 SQL 定义（每日一条摘要，按 date 唯一）
+    NEWS_SUMMARY_SCHEMA = """
+    -- 新闻摘要表
+    CREATE TABLE IF NOT EXISTS news_summary (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        date TEXT NOT NULL UNIQUE,            -- YYYY-MM-DD
+        digest TEXT NOT NULL,
+        summary TEXT NOT NULL,
+        update_time TEXT NOT NULL,            -- YYYY-MM-DD HH:MM:SS
+        created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+        updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+    );
+
+    CREATE INDEX IF NOT EXISTS idx_summary_date ON news_summary(date);
+    """
+
     def __init__(
         self,
         db_path: str = "newsradar.db",
@@ -77,6 +93,7 @@ class NewsDatabase:
         conn = self._get_connection()
         try:
             conn.executescript(self.NEWS_ITEMS_SCHEMA)
+            conn.executescript(self.NEWS_SUMMARY_SCHEMA)
             conn.commit()
         finally:
             conn.close()
@@ -200,6 +217,45 @@ class NewsDatabase:
         except Exception as e:
             print(f"[数据库] 保存失败: {e}")
             return False, 0, 0
+
+    def save_summary(self, date: str, summary: NewsSummary) -> bool:
+        """
+        保存某天的摘要（按 date 唯一 upsert）。
+        """
+        conn = self._get_connection()
+        try:
+            now_str = self._get_current_time().strftime("%Y-%m-%d %H:%M:%S")
+            conn.execute(
+                """
+                INSERT INTO news_summary (date, digest, summary, update_time, created_at, updated_at)
+                VALUES (?, ?, ?, ?, ?, ?)
+                ON CONFLICT(date) DO UPDATE SET
+                    digest=excluded.digest,
+                    summary=excluded.summary,
+                    update_time=excluded.update_time,
+                    updated_at=excluded.updated_at
+                """,
+                (date, summary.digest, summary.summary, summary.update_time, now_str, now_str),
+            )
+            conn.commit()
+            return True
+        except Exception as e:
+            print(f"[数据库] 保存摘要失败 (date={date}): {e}")
+            return False
+        finally:
+            conn.close()
+
+    def get_summary(self, date: str) -> Optional[Dict[str, Any]]:
+        conn = self._get_connection()
+        try:
+            cur = conn.execute(
+                "SELECT id, date, digest, summary, update_time, created_at, updated_at FROM news_summary WHERE date = ?",
+                (date,),
+            )
+            row = cur.fetchone()
+            return dict(row) if row else None
+        finally:
+            conn.close()
 
     def get_news_by_date(
         self,

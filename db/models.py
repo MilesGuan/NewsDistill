@@ -80,7 +80,8 @@ class NewsData:
             "failed_ids": self.failed_ids,
         }
 
-#同类NewsItem聚合成一条
+
+# 同类NewsItem聚合成一条
 @dataclass
 class MergedNewsItem:
     title: str  # ai聚合后的标题
@@ -91,3 +92,11 @@ class MergedNewsItem:
 class NewsCategory:
     category: str  # ai聚合的分类
     items: List[MergedNewsItem]
+
+
+# 对应AIOutputModel的digest和summary
+@dataclass
+class NewsSummary:
+    digest: str
+    summary: str
+    update_time: str  # 生成时间

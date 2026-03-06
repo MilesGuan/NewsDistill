@@ -39,6 +39,9 @@ class AIOutputModel(BaseModel):
     digest: str = Field(
         description="对最核心的一到两个新闻做个摘要，不超过25字"
     )
+    summary: str = Field(
+        description="对比较重要五六条新闻做摘要总结（和digest内容不重复），尽量涉及多个分类，300字左右"
+    )
     items: List[AIOutputCategory] = Field(
         description="按分类聚合后的新闻结果"
     )
