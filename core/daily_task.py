@@ -18,8 +18,23 @@ def news_task(only_increment: bool = True):
     if not todo_news:
         print("没有新的资讯新闻")
         return
+
+    project_root = Path(__file__).resolve().parent.parent
+    db_month = f"{now.year}-{now.month}"
+    month_db_path = project_root / "output" / "db" / f"{db_month}.db"
+    if month_db_path.exists():
+        try:
+            with open(month_db_path, "rb") as f:
+                header = f.read(16)
+            if not header.startswith(b"SQLite format 3\x00"):
+                month_db_path.unlink()
+        except Exception:
+            month_db_path.unlink()
+    db = NewsDatabase(db_path=str(month_db_path))
+    recent_summaries = db.get_recent_summaries(limit=3)
+
     news_json, id_to_news_item = parse_news(todo_news)
-    ai_result, error_output = llm_distill(news_json)
+    ai_result, error_output = llm_distill(news_json, recent_summaries=recent_summaries)
 
     if ai_result is None:
         print("所有模型调用失败，错误汇总：")
@@ -33,23 +48,7 @@ def news_task(only_increment: bool = True):
     today = now.strftime("%Y-%m-%d")
     update_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     news_summary = NewsSummary(digest=ai_result.digest, summary=ai_result.summary, update_time=update_time)
-
-    project_root = Path(__file__).resolve().parent.parent
-    db_month = f"{now.year}-{now.month}"
-    month_db_path = project_root / "output" / "db" / f"{db_month}.db"
-
-    # 若 db 文件已存在但非有效 SQLite 格式，删除后重建
-    if month_db_path.exists():
-        try:
-            with open(month_db_path, "rb") as f:
-                header = f.read(16)
-            if not header.startswith(b"SQLite format 3\x00"):
-                month_db_path.unlink()
-        except Exception:
-            month_db_path.unlink()
-
-    db = NewsDatabase(db_path=str(month_db_path))
-    saved = db.save_summary(today, news_summary)
+    saved = db.save_summary(news_summary)
     if saved:
         print(f"[数据库] 摘要已写入: {month_db_path} (date={today})")
     else:

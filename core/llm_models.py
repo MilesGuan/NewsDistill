@@ -24,9 +24,16 @@ class AIOutputNewsItem(BaseModel):
     )
 
 class AIFilterOutput(BaseModel):
-    items: List[AIOutputNewsItem] = Field(
-        description="筛选聚合后的结果列表"
+    items: List[AINewsItem] = Field(
+        description="筛选后的结果列表"
     )
+
+
+class AIMergeOutput(BaseModel):
+    items: List[AIOutputNewsItem] = Field(
+        description="聚合后的结果列表"
+    )
+
 
 class AIOutputCategory(BaseModel):
     category: str = Field(
